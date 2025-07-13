@@ -17,9 +17,10 @@ app.get('/about', (req, res) => {
 });
 
 // Only start the server if this file is run directly
-if (require.main === module) {
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-}
+// if (require.main === module)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Listening on ${PORT}`);
+});
 
 module.exports = app;   // <-- critical for tests
