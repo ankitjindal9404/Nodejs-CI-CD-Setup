@@ -29,6 +29,9 @@ jobs:
       - name: "List dependenecies"
         run: ls
 
+      - name: "Set permissions for eslint"
+        run: chmod +x node_modules/.bin/eslint
+
       - name: "Lint Tests"
         run: npm run lint
 
