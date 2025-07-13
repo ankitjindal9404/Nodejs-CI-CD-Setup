@@ -29,8 +29,8 @@ jobs:
       - name: "List dependenecies"
         run: ls
 
+      - name: "Lint Tests"
+        run: npm run lint
+
       - name: "Run Tests"
         run: npm run test
-
-      - name: "Run Build"
-        run: npm run build
