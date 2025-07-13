@@ -1,0 +1,33 @@
+name: "Sample Nodejs CI/CD Pipeline"
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: "Setup Nodejs"
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+
+      - name: "Check Node version"
+        run: node --version
+
+      - name: "Clone the repository"
+        uses: actions/checkout@v4
+
+      - name: "Install dependenecies"
+        run: npm install
+
+      - name: "List dependenecies"
+        run: ls
+
+      - name: "Run Tests"
+        run: npm test
