@@ -9,10 +9,27 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
+        environment: deployment
 
         steps:
+
+            - name: "Setup Nodejs"
+              uses: actions/setup-node@v4
+              with:
+                node-version: '21'
+
+            - name: "Setup Vercel CLI"
+              run: npm install -g vercel
+
             - name: "Download build files"
               run: actions/download-artifact@v4
               with:
                 name: build
+                run-id: ${{ github.event.workflow_run.id }}
+                github-token: ${{ github.token }}
     
+            - name: "Deploy to vercel"
+              run: vercel --prod --token=${{ secrets.PRACTICE_TOKEN }} --confirm --name=cicdproject
+              env:
+                PRACTICE_TOKEN: ${{ secrets.PRACTICE_TOKEN }}
+            
