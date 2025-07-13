@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "node node_modules/jest/bin/jest.js --runInBand",
+    "test": "jest --runInBand",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage"
   },
