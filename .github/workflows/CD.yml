@@ -1,0 +1,18 @@
+name: "Sample Nodejs CD Pipeline"
+
+on:
+    workflow_run:
+        workflows: ["Sample Nodejs CI Pipeline"]
+        types:
+            - completed
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: "Download build files"
+              run: actions/download-artifact@v4
+              with:
+                name: build
+    
