@@ -2,7 +2,7 @@
 // import express from 'express';
 const express = require('express');
 const app = express();
-const port = 3000;
+// const port = 3000;
 
 // Basic route to test the server
 app.get('/', (req, res) => {
